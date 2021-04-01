@@ -3,6 +3,7 @@ require('dotenv').config(); // Carrega as "variáveis de ambiente"
 const InicializaMongoServer = require('./config/Db');
 //Definindo as rotas da aplicação
 const rotasCategoria = require('./routes/Categoria');
+const rotasRestaurante = require('./routes/Restaurante');
 
 //Inicializamos o servidor MongoDB
 InicializaMongoServer();
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 });
 /* Rotas da Categoria */
 app.use('/categorias', rotasCategoria);
+app.use('/restaurantes', rotasRestaurante);
 
 app.listen(PORT, (req, res) => {
   console.log(`Servidor Web iniciado na porta ${PORT}`);

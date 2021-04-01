@@ -1,8 +1,91 @@
 //Teste de requisições - Categoria
 
 @baseURL = http://localhost:4000
-
+@id = 60651600329fd3095c75a547
 ###
 // GET - Lista as categorias 
 GET {{baseURL}}/categorias
 Content-Type: application/json
+
+###
+// GET - Lista os restaurantes 
+GET {{baseURL}}/restaurantes
+Content-Type: application/json
+
+###
+// GET - Lista a categoria pelo ID
+GET {{baseURL}}/categorias/{{id}}
+Content-Type: application/json
+
+###
+// GET - Lista o restaurantes pelo ID
+GET {{baseURL}}/restaurantes/{{id}}
+Content-Type: application/json
+
+###
+// POST - Inclui uma nova categoria
+POST {{baseURL}}/categorias
+Content-Type: application/json
+
+{"nome": "Restaurante", "status": "ativo"}
+
+###
+// POST - Inclui um novo restaurante
+POST {{baseURL}}/restaurantes
+Content-Type: application/json
+
+{
+  "nome" : "Restaurante dos Meninos",
+  "status" : "ativo",
+  "foto": {
+       "originalname": "fachada.png", 
+       "path": "publics/uploads/fachada.png",
+       "size": 45318, 
+       "mimetype":"image/png"
+  }, 
+  "notaMedia" : 4.5,
+  "categoria" :"60651bb22b37f20bdace5f68",
+  "faixaPreco" : "barato",
+  "tempoEntrega" : "45 a 60min",
+  "telefone": "(11)4013-1768",
+  "endereco": {
+    "logradouro": "Praça da Independência, 224",
+    "bairro": "Centro",
+    "cep": "13300000",
+    "municipio": "Itu",
+    "estado": "SP",
+    "complemento": "" 
+  },
+  "geoLocalizacao": {
+      "latitude" : -23.265370,
+      "longitude": -47.298160
+  }
+}
+
+###
+// DELETE - Apaga uma categoria
+DELETE {{baseURL}}/categorias/{{id}}
+Content-Type: application/json
+
+###
+// DELETE - Apaga um restaurante
+DELETE {{baseURL}}/restaurantes/{{id}}
+Content-Type: application/json
+
+###
+/// UPDATE - Atualiza uma categoria
+PUT {{baseURL}}/categorias
+Content-Type: application/json
+
+{
+  "_id": "6064fe604be7e00373fd782b", "nome": "Churrascaria", "status": "ativo"
+}
+
+###
+/// UPDATE - Atualiza um restaurante
+PUT {{baseURL}}/restaurantes
+Content-Type: application/json
+
+{
+  "_id": "60651600329fd3095c75a547", "nome": "Fogão de Ouro", "status": "ativo", "notaMedia": "5", "categoria": "60651bb22b37f20bdace5f68", "faixaPreco": "barato"
+}
