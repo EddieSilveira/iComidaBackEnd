@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
   const idiomas = req.headers['accept-language'];
   res.json({
     mensagem: 'API iComida 100% funcional! 👏',
-    versao: '1.0.1',
+    versao: '1.0.2',
   });
 });
 /* Rotas da Categoria */
@@ -47,7 +47,6 @@ app.use('/categorias', rotasCategoria);
 app.use('/restaurantes', rotasRestaurante);
 /* Rotas do conteúdo público */
 app.use('/public', express.static('public'));
-
 /* Rota do Upload */
 app.use('/upload', rotaUpload);
 
