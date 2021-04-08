@@ -12,6 +12,12 @@ const CategoriaSchema = mongoose.Schema(
       enum: ['ativo', 'inativo'],
       default: 'ativo',
     },
+    foto: {
+      originalname: { type: String },
+      path: { type: String },
+      size: { type: Number },
+      mimetype: { type: String },
+    },
   },
   { timestamps: true },
 );
